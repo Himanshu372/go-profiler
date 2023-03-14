@@ -29,7 +29,7 @@ func (r *RuntimeProfileHandler) ExecutionCollectMemStats(runGC bool) {
 
 // GetExecutionMemInGB function fetches collected mem in GB
 func (r *RuntimeProfileHandler) GetExecutionMemInMB() uint64 {
-	return byteToMB(r.memStatsCollector.HeapAlloc)
+	return byteToMB(r.memStatsCollector.TotalAlloc)
 }
 
 // ExecutionTimeStart marks start of execution time

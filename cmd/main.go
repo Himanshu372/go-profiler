@@ -61,6 +61,6 @@ func main() {
 		fmt.Println(err)
 	}
 	fmt.Println(fmt.Sprintf("Time elapsed during compute: %f min", elapsedTime))
-	fmt.Println(fmt.Sprintf("Heap usage during compute: %d MB", endHeapAlloc-startHeapAlloc))
+	fmt.Println(fmt.Sprintf("Heap usage during compute: %d KB", endHeapAlloc-startHeapAlloc))
 
 }

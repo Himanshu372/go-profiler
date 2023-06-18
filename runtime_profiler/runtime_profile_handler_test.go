@@ -16,13 +16,13 @@ var _ = Describe("Runtime Profile Handler Tests", func() {
 		err             error
 	)
 	It("successfully returns the runtime profile handler", func() {
-		runtimeProfiler, err = NewRuntimeProfileHandler(m)
+		runtimeProfiler, err = NewRuntimeProfileHandler(m, MemInKB)
 		Ω(err).ShouldNot(HaveOccurred())
 		Ω(runtimeProfiler).ShouldNot(BeNil())
 	})
 
 	BeforeEach(func() {
-		runtimeProfiler, err = NewRuntimeProfileHandler(m)
+		runtimeProfiler, err = NewRuntimeProfileHandler(m, MemInKB)
 		Ω(err).ShouldNot(HaveOccurred())
 	})
 
@@ -34,7 +34,7 @@ var _ = Describe("Runtime Profile Handler Tests", func() {
 			kv[i] = true
 		}
 		runtimeProfiler.ExecutionCollectMemStats(false)
-		memBytes := runtimeProfiler.GetExecutionMemInMB()
+		memBytes := runtimeProfiler.GetAllocatedMem()
 		Ω(memBytes).ShouldNot(BeZero())
 	})
 
@@ -46,7 +46,7 @@ var _ = Describe("Runtime Profile Handler Tests", func() {
 			kv[i] = true
 		}
 		runtimeProfiler.ExecutionCollectMemStats(true)
-		memBytes := runtimeProfiler.GetExecutionMemInMB()
+		memBytes := runtimeProfiler.GetAllocatedMem()
 		Ω(memBytes).ShouldNot(BeZero())
 	})
 

@@ -1,10 +1,7 @@
 name: Go
 
-on: 
-  push: 
-    branches: [$default-branch]
-  pull:
-    branches: [$default-branch]
+on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest

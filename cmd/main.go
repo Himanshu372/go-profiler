@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/hjack/go-profiler/interfaces"
-	"github.com/hjack/go-profiler/runtime_profiler"
+	"github.com/Himanshu372/go-profiler/runtime_profiler"
 	"math/rand"
 	"runtime"
 	"time"
@@ -14,11 +13,9 @@ var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	fmt.Println("Init profiler")
-	var profiler interfaces.ProfileHandler
-	var err error
 	var memstats runtime.MemStats
 	var startHeapAlloc, endHeapAlloc uint64
-	profiler, err = runtime_profiler.NewRuntimeProfileHandler(memstats, runtime_profiler.MemInKB)
+	profiler, err := runtime_profiler.NewRuntimeProfileHandler(memstats, runtime_profiler.MemInKB)
 	if err != nil {
 		fmt.Println(err)
 	}

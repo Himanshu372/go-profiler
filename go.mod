@@ -1,4 +1,4 @@
-module github.com/hjack/go-profiler
+module github.com/Himanshu372/go-profiler
 
 go 1.19
 
